@@ -1,0 +1,793 @@
+{
+    "default_tokens": [
+        {
+            "token_name": "THIRD_PAGE_STATIC_ENDCARD",
+            "properties": {
+                "display_name": "Add Third Page Endcard",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": "false",
+                "group_id": "Third Page Static Endcard",
+                "description": "Improve CTR with additional static endcard"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": false,
+                "overrides": []
+            },
+            "shows": [
+                "APP_NAME",
+                "APP_ICON",
+                "CTA_BUTTON_TEXT",
+                "SKP_AFTER_ENDCARD",
+                "ENDCARD_CLOSE_BUTTON_AS_SKIP"
+            ]
+        },      
+        {
+            "token_name": "CTA_BUTTON_TEXT",
+            "properties": {
+                "display_name": "CTA Text",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "GET",
+                "group_id": "Third Page Static Endcard"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": false,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            },
+            "ignoredPlatforms": [
+                "android",
+                "windows",
+                "amazon"
+            ],
+            "validation": {
+                "maxLength": 15
+            }
+        },           
+        {
+            "token_name": "APP_ICON",
+            "properties": {
+                "display_name": "App Icon",
+                "cacheable": true,
+                "data_type": "image",
+                "default_value": null,
+                "group_id": "Third Page Static Endcard"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": false,
+                "overrides": []
+            },
+            "ignoredPlatforms": [
+                "android",
+                "windows",
+                "amazon"
+            ]
+        },
+        {
+           "token_name": "APP_NAME",
+           "properties": {
+               "display_name": "App Name",
+               "cacheable": false,
+               "data_type": "string",
+               "default_value": null,
+               "group_id": "Third Page Static Endcard"
+           },
+           "role": {
+               "name": "advertiser",
+               "valueRequired": false,
+               "overrides": []
+           },
+           "ignoredPlatforms": [
+                "android",
+                "windows",
+                "amazon"
+            ]
+        },
+        {
+            "token_name": "VIDEO_CLOSE_BUTTON_AS_SKIP",
+            "properties": {
+                "display_name": "Replace Video Close Button with Skip Button",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": null,
+                "group_id": "Page Transitions"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": false,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "ENDCARD_CLOSE_BUTTON_AS_SKIP",
+            "properties": {
+                "display_name": "Replace Playable Close Button with Skip Button",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": null,
+                "group_id": "Page Transitions"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": false,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "SKP_AFTER_VIDEO",
+            "properties": {
+                "display_name": "Show StoreKit Product View After Video",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": null,
+                "group_id": "Page Transitions"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": false,
+                "overrides": []
+            },
+            "ignoredPlatforms": [
+                "android",
+                "windows",
+                "amazon"
+            ]
+        },
+        {
+            "token_name": "SKP_AFTER_ENDCARD",
+            "properties": {
+                "display_name": "Show StoreKit Product View After Playable",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": null,
+                "group_id": "Page Transitions"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": false,
+                "overrides": []
+            },
+            "ignoredPlatforms": [
+                "android",
+                "windows",
+                "amazon"
+            ]
+        },
+        {
+            "token_name": "SKOVERLAY_AUTO",
+            "properties": {
+                "display_name": "StoreKit Overlay Auto Show",
+                "cacheable": false,
+                "data_type": "radio",
+                "default_value": "false",
+                "group_id": "Video Clickthrough Experience",
+                "description": "100% CTR. This option will have the native iOS popup trigger after 5 seconds over the video asset. The video will be partially obscured as well. MMP Auto Click will be sent as well. <a href='https://vungle.com/blog/what-is-skoverlay/' target='_blank'>Learn more about SKOverlay</a>"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": false,
+                "overrides": []
+            },
+            "ignoredPlatforms": [
+                "android",
+                "windows",
+                "amazon"
+            ]
+        },
+        {
+            "token_name": "INTERACTIVE_VIDEO",
+            "properties": {
+                "display_name": "Interactive Video",
+                "cacheable": false,
+                "data_type": "radio",
+                "default_value": "true",
+                "group_id": "Video Clickthrough Experience",
+                "description": "Lower CTR than StoreKit Overlay Auto Show. Define what part of the video is clickable and what user action calls the App Store."
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": false,
+                "overrides": []
+            },
+            "children": [
+                "FULL_CTA",
+                "VIDEO_SHOW_CTA",
+                "DOWNLOAD_BUTTON_DELAY_SECONDS"
+            ],
+            "ignoredPlatforms": [
+                "android",
+                "windows",
+                "amazon"
+            ]
+        },
+        {
+            "token_name": "CLOSE_BUTTON_DELAY_SECONDS",
+            "properties": {
+                "display_name": "Close Button Delay",
+                "cacheable": false,
+                "data_type": "float",
+                "default_value": "0",
+                "group_id": "Button Controls"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "CREATIVE_VIEW_TYPE",
+            "properties": {
+                "display_name": "Creative View Type",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "video_and_endcard",
+                "group_id": "Custom Creative Settings"
+            },
+            "role": {
+                "name": "system",
+                "valueRequired": true,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "ENDCARD_ONLY_DURATION_SECONDS",
+            "properties": {
+                "display_name": "Single Page Endcard Maximum Duration",
+                "cacheable": false,
+                "data_type": "float",
+                "default_value": "25",
+                "group_id": "Button Controls"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "EC_CLOSE_BUTTON_DELAY_SECONDS",
+            "properties": {
+                "display_name": "Endcard Close Button Delay",
+                "cacheable": false,
+                "data_type": "float",
+                "default_value": "0",
+                "group_id": "Button Controls"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "VIDEO_CLOSE_BUTTON_DELAY_SECONDS",
+            "properties": {
+                "display_name": "Video Close Button Delay",
+                "cacheable": false,
+                "data_type": "float",
+                "default_value": "0",
+                "group_id": "Button Controls"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "INCENTIVIZED_CLOSE_BUTTON_DELAY_SECONDS",
+            "properties": {
+                "display_name": "Incentivized Close Button Delay",
+                "cacheable": false,
+                "data_type": "float",
+                "default_value": "0",
+                "group_id": "Button Controls"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "INCENTIVIZED_TITLE_TEXT",
+            "properties": {
+                "display_name": "Incentivized Dialog Title Text",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "Close this ad?",
+                "group_id": "Incentivized Dialog Box"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "INCENTIVIZED_BODY_TEXT",
+            "properties": {
+                "display_name": "Incentivized Dialog Body text",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "Are you sure you want to skip this ad? You must finish watching to claim your reward.",
+                "group_id": "Incentivized Dialog Box"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "INCENTIVIZED_CLOSE_TEXT",
+            "properties": {
+                "display_name": "Incentivized Dialog Close Button Text",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "Close",
+                "group_id": "Incentivized Dialog Box"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "INCENTIVIZED_CONTINUE_TEXT",
+            "properties": {
+                "display_name": "Incentivized Dialog Continue Button Text",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "Continue",
+                "group_id": "Incentivized Dialog Box"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "START_MUTED",
+            "properties": {
+                "display_name": "Start Muted",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": "false",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "MAIN_VIDEO",
+            "properties": {
+                "display_name": "Video",
+                "cacheable": true,
+                "data_type": "video",
+                "default_value": "https://cdn-lb.vungle.com/templates/defaults/video/video.mp4",
+                "group_id": "Product Description"
+            },
+            "role": {
+                "name": "system",
+                "valueRequired": true,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "ENDCARD",
+            "properties": {
+                "display_name": "Endcard",
+                "cacheable": true,
+                "data_type": "bundle",
+                "default_value": "https://cdn-lb.vungle.com/bundles/CUSTOM-CREATIVE.zip",
+                "group_id": "Custom Creative Settings"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "CTA_BUTTON_URL",
+            "properties": {
+                "display_name": "CTA URL",
+                "cacheable": false,
+                "data_type": "url",
+                "default_value": "",
+                "group_id": "Product Description"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": true,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "FULL_CTA",
+            "properties": {
+                "display_name": "Full Screen Clickable",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": "true",
+                "group_id": "Video Clickthrough Experience",
+                "description": "High CTR. The entire video is clickable. When the video is clicked the App Store is called. The method for how the App Store Shows is defined by the Publisher's App."
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "VIDEO_SHOW_CTA",
+            "properties": {
+                "display_name": "Video CTA",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": "false",
+                "group_id": "Video Clickthrough Experience",
+                "description": "Low CTR. Choose to display a CTA button on the video. This CTA button can be delayed as well."
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            },
+            "shows": [
+                "DOWNLOAD_BUTTON_DELAY_SECONDS"
+            ]
+        },
+        {
+            "token_name": "DOWNLOAD_BUTTON_DELAY_SECONDS",
+            "properties": {
+                "display_name": "Video CTA Delay",
+                "cacheable": false,
+                "data_type": "float",
+                "default_value": "3.5",
+                "group_id": "Video Clickthrough Experience",
+                "description": "Seconds delay for video CTA"
+            },
+            "role": {
+                "name": "advertiser",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "VIDEO_PROGRESS_BAR",
+            "properties": {
+                "display_name": "Video Progress Bar",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": "true",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "SHOW_VIDEO_CLOSE_BUTTON_COUNTDOWN",
+            "properties": {
+                "display_name": "Show Video Close Button Timer",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": "false",
+                "group_id": "Button Controls"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "SHOW_EC_CLOSE_BUTTON_COUNTDOWN",
+            "properties": {
+                "display_name": "Show Endcard Close Button Timer",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": "true",
+                "group_id": "Button Controls"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "VUNGLE_PRIVACY_LOGO",
+            "properties": {
+                "display_name": "Vungle Privacy Logo",
+                "cacheable": true,
+                "data_type": "image",
+                "default_value": "https://cdn-lb.vungle.com/creative/design-framework/assets/vungle-privacy.svg",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "system",
+                "valueRequired": true,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "VUNGLE_PRIVACY_URL",
+            "properties": {
+                "display_name": "Vungle Privacy URL",
+                "cacheable": false,
+                "data_type": "url",
+                "default_value": "https://privacy.vungle.com",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "system",
+                "valueRequired": true,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "ASOI_SETTINGS",
+            "properties": {
+                "display_name": "App Store on Interaction",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "complete",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "SK_FSC",
+            "properties": {
+                "display_name": "StoreKit Full Screen Clickable",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "default",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "SK_ASOI_AGGRESSIVE",
+            "properties": {
+                "display_name": "StoreKit ASOI Aggressive",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "default",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "SK_ASOI_COMPLETE",
+            "properties": {
+                "display_name": "StoreKit ASOI Complete",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "default",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "SK_CTA_ONLY",
+            "properties": {
+                "display_name": "StoreKit CTA Only",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "default",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "SKOVERLAY_POSITION",
+            "properties": {
+                "display_name": "SKOverlay Position",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "default",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "SKOVERLAY_DISMISSIBLE",
+            "properties": {
+                "display_name": "SKOverlay Dismissible",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "default",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": true,
+                "overrides": [
+                    {
+                        "name": "system",
+                        "priority": 1
+                    }
+                ]
+            }
+        },
+        {
+            "token_name": "FULL_CTA_OPTION",
+                "properties": {
+                "display_name": "Video Clickable Area",
+                "cacheable": false,
+                "data_type": "string",
+                "default_value": "",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "publisher",
+                "valueRequired": false,
+                "overrides": []
+            }
+        },
+        {
+            "token_name": "HAS_ENDCARD",
+            "properties": {
+                "display_name": "Has EndCard",
+                "cacheable": false,
+                "data_type": "boolean",
+                "default_value": "true",
+                "group_id": "Advanced Settings"
+            },
+            "role": {
+                "name": "system",
+                "valueRequired": true,
+                "overrides": []
+            }
+        }
+    ]
+}
